@@ -12,23 +12,18 @@ const Events = (props) => (
             style={{ marginBottom: "2rem" }}
           >
             <div className="events__box">
-              <img
-                className="event__box-img"
-                src={event.speakers.profile_pic}
-                alt={event.speakers.name}
-              />
               <div className="event__text">
-                <h5 className="events__title">
-                  {event.name.length < 20
-                    ? `${event.name}`
-                    : `${event.name.substring(0, 25)}...`}
-                </h5>
+                <h5 className="events__title">{event.name}</h5>
                 <p className="events__subtitle">
                   Description:
-                  <span>{event.description}</span>
+                  <span>
+                    {event.description.length < 130
+                      ? `${event.description}`
+                      : `${event.description.substring(0, 130)}...`}
+                  </span>
                 </p>
               </div>
-              <button className="event__button">Public Link: </button>
+              <button className="event__buttons">Public Link: </button>
             </div>
           </div>
         );
