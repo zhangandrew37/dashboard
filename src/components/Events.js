@@ -17,10 +17,14 @@ const Events = (props) => (
                 src={event.speakers.profile_pic}
                 alt={event.speakers.name}
               />
-              <div className="event_text">
-                <h5 className="events__title">{event.name}</h5>
+              <div className="event__text">
+                <h5 className="events__title">
+                  {event.name.length < 20
+                    ? `${event.name}`
+                    : `${event.name.substring(0, 25)}...`}
+                </h5>
                 <p className="events__subtitle">
-                  Placeholder:
+                  Description:
                   <span>{event.description}</span>
                 </p>
               </div>
