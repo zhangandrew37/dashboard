@@ -51,6 +51,14 @@ class Event extends React.Component {
                 <a href={event.public_url}>{event.private_url}</a>
               </span>
             </p>
+            {/* <p className="active-event__website">
+              Related Events:
+              <span>
+                <button className="tag__buttons">
+                <Link to="/events/"></Link>
+                </button>
+              </span>
+            </p> */}
             <button className="active-event__button">
               <Link to="/">Return to Events</Link>
             </button>
