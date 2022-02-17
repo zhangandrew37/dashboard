@@ -14,9 +14,12 @@ class App extends Component {
     const call_api = await fetch(`https://api.hackthenorth.com/v3/events/`);
 
     const data = await call_api.json();
+    data.sort((a, b) => a.start_time - b.start_time);
+    console.log(data);
     this.setState({ events: data });
     console.log(this.state.events);
   };
+
   render() {
     return (
       <div className="App">

@@ -5,6 +5,7 @@ class Event extends React.Component {
   state = {
     activeEvent: [],
   };
+
   componentDidMount = async () => {
     const id = this.props.location.state.event;
     const req = await fetch(`https://api.hackthenorth.com/v3/events/`);
@@ -14,6 +15,7 @@ class Event extends React.Component {
     this.setState({ activeEvent: ev[id - 1] });
     console.log(this.state.activeEvent);
   };
+
   render() {
     const event = this.state.activeEvent;
     return (
@@ -22,17 +24,31 @@ class Event extends React.Component {
           <div className="active-event">
             <img
               className="active-event__img"
-              src={event.speakers[0].name} // fix later (profile pic)
-              alt={event.name}
+              src={
+                event.speakers != undefined
+                  ? `${event.speakers[0].profile_pic}`
+                  : ""
+              }
+              alt={""}
             />
             <h3 className="active-event__title">{event.name}</h3>
             <h4 className="active-event__publisher">
-              Publisher: <span>{event.publisher}</span>
+              Speakers: <span>{event.speakers[0].name}</span>
             </h4>
+            <p className="events__subtitle">
+              Description:
+              <span>{event.description}</span>
+            </p>
             <p className="active-event__website">
-              Website:
+              Public URL:
               <span>
                 <a href={event.public_url}>{event.public_url}</a>
+              </span>
+            </p>
+            <p className="active-event__website">
+              Private URL:
+              <span>
+                <a href={event.public_url}>{event.private_url}</a>
               </span>
             </p>
             <button className="active-event__button">

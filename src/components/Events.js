@@ -35,6 +35,8 @@ const Events = (props) => (
                   View Event
                 </Link>
               </button>
+              {/* implement functionality to display all events with same type upon clicking button if time allows */}
+              <button className="tag__buttons">{event.event_type}</button>
             </div>
           </div>
         );
