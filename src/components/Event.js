@@ -25,7 +25,7 @@ class Event extends React.Component {
             <img
               className="active-event__img"
               src={
-                event.speakers != undefined
+                event.speakers !== undefined
                   ? `${event.speakers[0].profile_pic}`
                   : ""
               }
