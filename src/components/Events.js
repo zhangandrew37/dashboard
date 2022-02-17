@@ -1,6 +1,8 @@
 import react from "react";
 import React from "react";
 
+import { Link } from "react-router-dom";
+
 const Events = (props) => (
   <div className="container">
     <div className="row">
@@ -23,7 +25,16 @@ const Events = (props) => (
                   </span>
                 </p>
               </div>
-              <button className="event__buttons">Public Link: </button>
+              <button className="event__buttons">
+                <Link
+                  to={{
+                    pathname: `/event/${event.id}`,
+                    state: { event: event.id },
+                  }}
+                >
+                  View Event
+                </Link>
+              </button>
             </div>
           </div>
         );
